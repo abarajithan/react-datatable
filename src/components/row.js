@@ -27,7 +27,7 @@ function Row(props) {
             </div>		
 			{
 				props.columns.map((item,key) => 
-					<div key={key} className={"column "} style={{width:columnWidth[key]}}>{props.data[item.id]}</div>    
+					<div key={key} className={`column ${item.numeric ? "align-right": ""}`} style={{width:columnWidth[key]}}>{props.data[item.id]}</div>    
 				)
 			}
 		</div>
