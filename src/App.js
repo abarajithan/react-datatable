@@ -10,7 +10,7 @@ function App() {
   const loadData = (pagesize) => {
     fetch("https://jsonplaceholder.typicode.com/photos").then(res => res.json())
     .then(response => {
-      setData(data.concat(response.slice(pagesize*length,pagesize*length+length)))
+      setData(data.concat(response.slice(pagesize*length,pagesize*length+length)));
       setPagesize(pagesize)
     });
   }

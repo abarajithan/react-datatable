@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 function Row(props) {
   
 	const [columnWidth,setColumnWidth] = useState({});
+
+	const handleChange = (index) => {
+		props.handleChange(index);
+	}
 	
 	useEffect(()=>{
 
@@ -15,13 +19,18 @@ function Row(props) {
 	},[])
 
 	return (
-	<div className="row-container">
-		{
-			props.columns.map((item,key) => 
-				<div key={key} className={"column "} style={{width:columnWidth[key]}}>{props.data[item.id]}</div>    
-			)
-		}
-	</div>
+		<div className="row-container">
+			<div className={`column`} style={{width: "50px"}}>
+                <label>
+                    <input onChange={()=>handleChange(props.index)} checked={props.data.checked} type="checkbox" /> 
+                </label>
+            </div>		
+			{
+				props.columns.map((item,key) => 
+					<div key={key} className={"column "} style={{width:columnWidth[key]}}>{props.data[item.id]}</div>    
+				)
+			}
+		</div>
 	);
   }
   
