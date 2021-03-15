@@ -33,7 +33,7 @@ function Table(props) {
 			<div onScroll={onScroll} className="table-data">
 			{
 				rows.map((row,key) => 
-					<Row key={key} handleChange={handleChange} index={key} columns={props.columns} data={row} />
+					<Row key={key} onRowClick ={props.onRowClick} handleChange={handleChange} index={key} columns={props.columns} data={row} />
 				)
 			}
 			</div>

@@ -19,7 +19,7 @@ function Row(props) {
 	},[])
 
 	return (
-		<div className="row-container">
+		<div className="row-container" onClick={()=>props.onRowClick(props.data,props.index)}>
 			<div className={`column`} style={{width: "50px"}}>
                 <label>
                     <input onChange={()=>handleChange(props.index)} checked={props.data.checked} type="checkbox" /> 

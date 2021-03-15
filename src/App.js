@@ -49,6 +49,7 @@ function App() {
        Data Table
       </header>
       <Table
+        onRowClick={(rowData, rowIndex) => console.log(`Row Number:${rowIndex} Row Data:${JSON.stringify(rowData)}`)}
         pagesize={pagesize}
         loadData={loadData} 
         rows={data}
