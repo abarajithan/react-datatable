@@ -1,18 +1,15 @@
 import Utils from '../utils';
-
+import Checkbox from './checkbox';
 function Column(props) {
 
     return (
         <div className="column-container">
-            <div className={`column`} style={{width: "50px"}}>
-                <label>
-                    <input onChange={props.handleAllSelected} checked={props.allSelected} type="checkbox" name="select-all" /> 
-                    Select All
-                </label>
-            </div>    
+            <Checkbox handleChange={props.handleAllSelected} label={"Select All"} checked={props.allSelected} />  
             {
                 props.data.map((item,key)=>
-                    <div id={`column-${key}`} key={key} className={`column ${Utils.getClass(item.width)}`} style={{width:item.width}}>{item.label}</div>    
+                    <div id={`column-${key}`} key={key} className={`column ${Utils.getClass(item.width)}`} style={{width:item.width}}>
+                        <span>{item.label}</span>
+                    </div>    
                 )
             }
         </div>

@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-header {
   background-color: rgb(0, 0, 163);
@@ -20,11 +18,15 @@
 
 .column{
   border: 1px solid #333;
-  padding: 5px;
 }
 
 .row-container .column{
   word-break: break-word;
+}
+
+.column > span {
+  padding: 5px;
+  display: block;
 }
 
 .flex{

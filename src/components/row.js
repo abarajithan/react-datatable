@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import Checkbox from './checkbox';
 function Row(props) {
   
 	const [columnWidth,setColumnWidth] = useState({});
@@ -12,7 +12,7 @@ function Row(props) {
 
 		let obj = {};
 		props.columns.forEach((item,key) => 
-			obj[key] = item.width && item.width !== "" ?  item.width : document.getElementById(`column-${key}`).clientWidth
+			obj[key] = item.width && item.width !== "" ?  item.width : document.getElementById(`column-${key}`).offsetWidth
 		)
 		setColumnWidth(obj);
 		
@@ -20,14 +20,12 @@ function Row(props) {
 
 	return (
 		<div className="row-container" onClick={()=>props.onRowClick(props.data,props.index)}>
-			<div className={`column`} style={{width: "50px"}}>
-                <label>
-                    <input onChange={()=>handleChange(props.index)} checked={props.data.checked} type="checkbox" /> 
-                </label>
-            </div>		
+			<Checkbox handleChange={()=>handleChange(props.index)}  checked={props.data.checked} /> 
 			{
 				props.columns.map((item,key) => 
-					<div key={key} className={`column ${item.numeric ? "align-right": ""}`} style={{width:columnWidth[key]}}>{props.data[item.id]}</div>    
+					<div key={key} className={`column ${item.numeric ? "align-right": ""}`} style={{width:columnWidth[key]}}>
+						<span>{props.data[item.id]}</span>
+					</div>    
 				)
 			}
 		</div>

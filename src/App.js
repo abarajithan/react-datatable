@@ -19,7 +19,7 @@ function App() {
     'id': 'title',
     'label': 'Title',
     'numeric': false,
-    'width': "25%",
+    'width': "",
     },
     {
       'id': 'thumbnailUrl',
@@ -36,7 +36,6 @@ function App() {
     'id': 'id',
     'label': 'ID',
     'numeric': true,
-    'width': "25%",
     }];
   useEffect(()=>{
     loadData(pagesize);
