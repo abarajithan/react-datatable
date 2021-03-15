@@ -5,7 +5,7 @@ function App() {
 
   const [data,setData] = useState([]);
   const [pagesize,setPagesize] = useState(0);
-  const length = 10;
+  const length = 20;
 
   const loadData = (pagesize) => {
     fetch("https://jsonplaceholder.typicode.com/photos").then(res => res.json())
@@ -19,23 +19,24 @@ function App() {
     'id': 'title',
     'label': 'Title',
     'numeric': false,
-    'width': "100px",
+    'width': "25%",
     },
     {
       'id': 'thumbnailUrl',
       'label': 'Thumbnail Url',
       'numeric': false,
-      'width': "",
+      'width': "25%",
       },
     {
     'id': 'thumbnailUrl',
     'label': 'Thumbnail Url',
     'numeric': false,
-    'width': "15%",
+    'width': "25%",
     }, {
     'id': 'id',
     'label': 'ID',
     'numeric': true,
+    'width': "25%",
     }];
   useEffect(()=>{
     loadData(pagesize);
