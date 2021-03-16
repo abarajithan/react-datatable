@@ -24,9 +24,10 @@ function App() {
 		'width': "",
 		},
 		{
-		'id': 'url',
-		'label': 'URL',
+		'id': 'thumbnailUrl',
+		'label': 'Image',
 		'numeric': false,
+		'image': true,
 		'width': "25%",
 		}
 	];

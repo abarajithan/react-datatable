@@ -13,9 +13,7 @@
 
 .column-container, .row-container{
   display: flex;
-  flex-direction: row;
-  height: 50px;
-  
+  flex-direction: row;  
 }
 .row-container{
   border-bottom: 1px solid #ccc;

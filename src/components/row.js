@@ -19,7 +19,11 @@ function Row(props) {
 			{
 				props.columns.map((item,key) => 
 					<div key={key} className={`column ${item.numeric ? "align-right": ""}`} style={{width:columnWidth[key]}}>
-						<span>{props.data[item.id]}</span>
+						<span>
+							{
+								item.image ? <img alt="" src ={props.data[item.id]} /> : props.data[item.id]
+							}
+						</span>
 					</div>    
 				)
 			}
