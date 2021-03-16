@@ -14,10 +14,19 @@
 .column-container, .row-container{
   display: flex;
   flex-direction: row;
+  
+}
+.row-container{
+  border-bottom: 1px solid #ccc;
+}
+
+.column-container{
+  font-weight: bold;
+  border-bottom: 1px solid #333;
 }
 
 .column{
-  border: 1px solid #333;
+  
 }
 
 .row-container .column{
@@ -44,4 +53,10 @@
 
 .align-right{
   text-align: right;
+}
+
+.checkbox{
+  text-align: center;
+  width: 70px;
+  padding: 4px 0px;
 }

@@ -24,7 +24,7 @@ function Table(props) {
 
 	const onScroll = e => {
 		if (e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight){
-			props.loadData(props.pagesize+1);
+			props.loadData(props.pagenumber+1);
 		}
 	};
 	return (

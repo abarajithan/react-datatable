@@ -2,7 +2,7 @@ import React from 'react';
 
 function Checkbox(props){
     return(
-        <div className={`column`} style={{width: "70px"}}>
+        <div className="column checkbox">
             <label>
                 <input onChange={props.handleChange} checked={props.checked} type="checkbox" /> 
                 {props.label}

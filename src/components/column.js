@@ -4,7 +4,7 @@ function Column(props) {
 
     return (
         <div className="column-container">
-            <Checkbox handleChange={props.handleAllSelected} label={"Select All"} checked={props.allSelected} />  
+            <Checkbox handleChange={props.handleAllSelected} label={"All"} checked={props.allSelected} />  
             {
                 props.data.map((item,key)=>
                     <div id={`column-${key}`} key={key} className={`column ${Utils.getClass(item.width)}`} style={{width:item.width}}>

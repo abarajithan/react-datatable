@@ -4,41 +4,36 @@ import Table from './components/table';
 function App() {
 
   const [data,setData] = useState([]);
-  const [pagesize,setPagesize] = useState(0);
+  const [pagenumber,setPagenumber] = useState(0);
   const length = 20;
 
-  const loadData = (pagesize) => {
+  const loadData = (pagenumber) => {
     fetch("https://jsonplaceholder.typicode.com/photos").then(res => res.json())
     .then(response => {
-      setData(data.concat(response.slice(pagesize*length,pagesize*length+length)));
-      setPagesize(pagesize)
+      setData(data.concat(response.slice(pagenumber*length,pagenumber*length+length)));
+      setPagenumber(pagenumber)
     });
   }
 
   const columns=[{
+    'id': 'id',
+    'label': 'ID',
+    'numeric': true,
+    'width': "5%",
+    },{
     'id': 'title',
     'label': 'Title',
     'numeric': false,
     'width': "",
     },
     {
-      'id': 'thumbnailUrl',
-      'label': 'Thumbnail Url',
+      'id': 'url',
+      'label': 'URL',
       'numeric': false,
       'width': "25%",
-      },
-    {
-    'id': 'thumbnailUrl',
-    'label': 'Thumbnail Url',
-    'numeric': false,
-    'width': "25%",
-    }, {
-    'id': 'id',
-    'label': 'ID',
-    'numeric': true,
     }];
   useEffect(()=>{
-    loadData(pagesize);
+    loadData(pagenumber);
   },[])
 
   
@@ -50,8 +45,8 @@ function App() {
       </header>
       <Table
         onRowClick={(rowData, rowIndex) => console.log(`Row Number:${rowIndex} Row Data:${JSON.stringify(rowData)}`)}
-        pagesize={pagesize}
-        loadData={loadData} 
+        pagenumber={pagenumber} //
+        loadData={loadData} // Callback function to Call API 
         rows={data}
         columns={columns}
       />
