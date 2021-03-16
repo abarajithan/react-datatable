@@ -1,7 +1,6 @@
 import Utils from '../utils';
 import Checkbox from './checkbox';
 function Column(props) {
-
     return (
         <div className="column-container">
             <Checkbox handleChange={props.handleAllSelected} label={"All"} checked={props.allSelected} />  
@@ -14,6 +13,5 @@ function Column(props) {
             }
         </div>
     );
-  }
-  
-  export default Column;
+}
+export default Column;

@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
 import Checkbox from './checkbox';
 function Row(props) {
-  
 	const [columnWidth,setColumnWidth] = useState({});
-
 	const handleChange = (index) => {
 		props.handleChange(index);
 	}
-	
 	useEffect(()=>{
 
 		let obj = {};
@@ -15,9 +12,7 @@ function Row(props) {
 			obj[key] = item.width && item.width !== "" ?  item.width : document.getElementById(`column-${key}`).offsetWidth
 		)
 		setColumnWidth(obj);
-		
 	},[])
-
 	return (
 		<div className="row-container" onClick={()=>props.onRowClick(props.data,props.index)}>
 			<Checkbox handleChange={()=>handleChange(props.index)}  checked={props.data.checked} /> 
@@ -30,6 +25,5 @@ function Row(props) {
 			}
 		</div>
 	);
-  }
-  
-  export default Row;
+}
+export default Row;

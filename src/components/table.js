@@ -3,25 +3,21 @@ import Column from './column';
 import { useEffect, useState } from 'react';
 
 function Table(props) {
-	
 	const [rows,setRows] = useState([]);
 	const [allSelected, setAllSelected] = useState(false);
 	const handleChange = (index) => {
 		rows[index].checked = !rows[index].checked;
 		setRows([...rows]);
 	}
-
 	const handleAllSelected = () =>{
 		setAllSelected(!allSelected);
 		rows.forEach( item => item['checked'] = !allSelected);
 		setRows([...rows]);
 	}
-
 	useEffect(()=>{
 		props.rows.forEach( item => item['checked'] = allSelected);
 		setRows(props.rows)
 	},[props]);
-
 	const onScroll = e => {
 		if (e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight){
 			props.loadData(props.pagenumber+1);
